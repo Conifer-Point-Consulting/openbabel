@@ -155,7 +155,7 @@ namespace OpenBabel
     if( CanBeNormalized() )
       (*this) /= length();
 #else
-    (*this) /= length();
+    (*this) /= (DBL_EPSILON + length()); // avoid divide by zero
 #endif
     return(*this);
   }
